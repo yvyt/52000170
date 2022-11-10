@@ -91,12 +91,8 @@ namespace StudentTest
             int size=list.size();
             Assert.AreEqual(1, size);
         }
-        [TestMethod]
-        [ExpectedException(typeof(SystemException))]
-        public void inputValidScore()
-        {
-            
-        }
+   
+        
 
     }
 }
