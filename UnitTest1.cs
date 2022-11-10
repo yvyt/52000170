@@ -55,5 +55,48 @@ namespace StudentTest
             char c = s.getLetterScore();
             Assert.AreEqual('C', c);
         }
+        [TestMethod]
+        public void Score3Point5_D()
+        {
+            Student s = new Student();
+            s.Id = 1;
+            s.Name = "Jonh";
+            s.Age = 20;
+            s.Score = 3.5;
+            char c = s.getLetterScore();
+            Assert.AreEqual('D', c);
+        }
+        [TestMethod]
+        public void ScoreUnder3Point5_E()
+        {
+            Student s = new Student();
+            s.Id = 1;
+            s.Name = "Jonh";
+            s.Age = 20;
+            s.Score = 3;
+            char c = s.getLetterScore();
+            Assert.AreEqual('E', c);
+        }
+
+        [TestMethod]
+        public void AddStudent_Success_True()
+        {
+            StudentService list = new StudentService();
+            Student s = new Student() { Id = 1, Name = "Mart", Age = 20, Score = 8 };
+            bool st = list.addStudent(s);
+            Assert.IsTrue(st);
+            
+
+
+            int size=list.size();
+            Assert.AreEqual(1, size);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(SystemException))]
+        public void inputValidScore()
+        {
+            
+        }
+
     }
 }
